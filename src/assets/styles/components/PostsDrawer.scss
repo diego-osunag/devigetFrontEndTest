@@ -1,0 +1,25 @@
+.postsDrawer {
+  background-color: #1E1E1E;
+  width: 435px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.postsDrawer__title {
+  color: white;
+  background-color: #3C3C3C;
+  font-weight: normal;
+  text-align: center;
+  padding: 50px 0 20px 0;
+  margin: 0;
+}
+
+.postsDrawer__dismissAll {
+  color: #f3bb83;
+  font-weight: normal;
+  text-align: center;
+  padding: 18px 0;
+  margin: 0;
+}
