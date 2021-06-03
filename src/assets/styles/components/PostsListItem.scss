@@ -24,6 +24,10 @@
   align-self: center;
 }
 
+.postsListItem__author--indicator.visited {
+  visibility: hidden;
+}
+
 .postsListItem__author--text {
   color: white;
   font-weight: normal;
