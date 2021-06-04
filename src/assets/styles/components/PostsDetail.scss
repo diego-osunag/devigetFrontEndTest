@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 1;
+  width: 100%;
 }
 
 .postsDetail__author {
@@ -14,7 +14,8 @@
 }
 
 .postsDetail__description {
-  font-size: 1.5em;;
+  font-size: 1em;
   margin: 20px 0;
+  width: 90%;
 }
 
