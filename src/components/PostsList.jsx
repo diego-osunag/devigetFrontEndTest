@@ -5,9 +5,17 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import '../assets/styles/components/PostsList.scss'
 
 const PostsList = ({ postsList }) => {
+  console.log("PostsList.jsx")
+  console.log(postsList)
+
+  if(postsList == null) {
+    console.log("postsList is empty");
+    return <p>&nbsp;</p>;
+  }
+
   return(
     <section className="postsList">
-      <TransitionGroup component="div" className="postsList__container">
+      <TransitionGroup component="div" className="postsList__container">        
         { postsList.map( post =>
           <CSSTransition key={ post.data.id } timeout={700} classNames="item"> 
             <PostsListItem key={ post.data.id } {...post.data} />

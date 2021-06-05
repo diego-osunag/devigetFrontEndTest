@@ -6,15 +6,11 @@ import App from './containers/App';
 import reducer from './reducers';
 
 const initialState = {
-    "selectedPost": [
-        {
-            "author" : ""
-        }
-    ],    
-    "postsList": [
-    ],
-    "sidebar": false
+    "selectedPost": {},    
+    "postsList": []
 };
+console.log("index.js")
+console.log(initialState)
 
 const store = createStore(reducer, initialState);
 
