@@ -5,7 +5,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  transition: all 350ms;
+  transition: margin 350ms;
+  flex-shrink: 0;
 }
 
 .postsSidebar__title {
@@ -19,10 +20,12 @@
 
 .postsSidebar__dismissAll {
   color: #f3bb83;
+  background-color: #222;
   font-weight: normal;
   text-align: center;
   padding: 18px 0;
   margin: 0;
+  cursor: pointer;
 }
 
 .postsDetail__icon {
@@ -31,4 +34,13 @@
   right: 20px;
   top: 20px;
   display: none;
+  cursor: pointer;
+}
+
+.postsDetail__icon--reload {
+  width: 25px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
 }

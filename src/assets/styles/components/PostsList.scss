@@ -2,3 +2,24 @@
   flex-grow: 1;
   overflow-y: scroll;  
 }
+
+.item-enter {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.item-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+.item-exit {
+  opacity: 1;
+}
+
+.item-exit-active {
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: opacity 500ms ease-in, transform 500ms ease-in;
+}

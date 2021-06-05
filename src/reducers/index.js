@@ -6,6 +6,14 @@ const reducer = (state, action) => {
         selectedPost: [action.payload]
       }
 
+    case 'REMOVE_SELECTED_POST':
+      return {
+        ...state,
+        selectedPost: [{
+          "author" : ""
+        }]
+      }
+
     case 'SET_POST_AS_VISITED':
       let stringifiedPostsList = JSON.stringify(state.postsList)
       let copyOfPostsList = JSON.parse(stringifiedPostsList)
@@ -24,6 +32,18 @@ const reducer = (state, action) => {
         ...state,
         postsList: []
       };
+
+      case 'ADD_POSTS':
+        return {
+          ...state,
+          postsList: [...state.postsList, ...action.payload]
+        };
+
+      case 'TOGGLE_SIDEBAR':
+        return {
+          ...state,
+          sidebar: [!action.payload]
+        };
       
     default:
       return state;

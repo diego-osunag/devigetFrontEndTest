@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useTestAPI = (API) => {
+const useFetchAPI = (API) => {
   const [posts, setPosts] = useState({ children: [] });
 
   useEffect(() => {
@@ -11,4 +11,4 @@ const useTestAPI = (API) => {
   return posts;
 };
 
-export default useTestAPI;
+export default useFetchAPI;

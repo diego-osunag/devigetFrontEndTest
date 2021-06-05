@@ -3,6 +3,10 @@ export const setSelectedPost = payload => ({
   payload,
 });
 
+export const removeSelectedPost = payload => ({
+  type: 'REMOVE_SELECTED_POST',
+  payload,
+});
 
 export const setPostAsVisited = payload => ({
   type: 'SET_POST_AS_VISITED',
@@ -16,5 +20,15 @@ export const dismissPost = payload => ({
 
 export const dismissAllPosts = payload => ({
   type: 'DISMISS_ALL_POSTS',
+  payload,
+});
+
+export const addPosts = payload => ({
+  type: 'ADD_POSTS',
+  payload,
+});
+
+export const toggleSidebar = payload => ({
+  type: 'TOGGLE_SIDEBAR',
   payload,
 });

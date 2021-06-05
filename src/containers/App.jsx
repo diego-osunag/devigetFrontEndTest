@@ -1,11 +1,9 @@
 import React from 'react';
 import PostsDetail from '../components/PostsDetail';
 import PostsSidebar from '../components/PostsSidebar';
-import PostsList from '../components/PostsList';
 import '../assets/styles/App.scss';
 
 const App = () => {
-
   return (
     <div className="App">
       <PostsSidebar/>        
