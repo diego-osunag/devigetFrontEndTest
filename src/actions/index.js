@@ -3,6 +3,11 @@ export const setSelectedPost = payload => ({
   payload,
 });
 
+export const getPost = payload => ({
+  type: 'GET_POST',
+  payload,
+});
+
 export const removeSelectedPost = payload => ({
   type: 'REMOVE_SELECTED_POST',
   payload,
@@ -23,8 +28,8 @@ export const dismissAllPosts = payload => ({
   payload,
 });
 
-export const addPosts = payload => ({
-  type: 'ADD_POSTS',
+export const loadPosts = payload => ({
+  type: 'LOAD_POSTS',
   payload,
 });
 
@@ -32,3 +37,8 @@ export const toggleSidebar = payload => ({
   type: 'TOGGLE_SIDEBAR',
   payload,
 });
+
+export const updatePageCount = payload => ({
+  type: 'UPDATE_PAGECOUNT',
+  payload,
+})

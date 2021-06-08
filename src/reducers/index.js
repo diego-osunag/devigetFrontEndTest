@@ -3,51 +3,62 @@ const reducer = (state, action) => {
     case 'SET_SELECTED_POST':
       return {
         ...state,
-        selectedPost: [action.payload]
-      }
+        selectedPost: state.postsList.filter(items => items.id === action.payload),
+      };
 
     case 'REMOVE_SELECTED_POST':
       return {
         ...state,
-        selectedPost: [{
-          "author" : ""
-        }]
-      }
+        selectedPost: [],
+      };
 
     case 'SET_POST_AS_VISITED':
-      let stringifiedPostsList = JSON.stringify(state.postsList)
-      let copyOfPostsList = JSON.parse(stringifiedPostsList)
-      let postToBeModified = copyOfPostsList.find(items => items.data.id === action.payload)
-      postToBeModified.data.visited = true
-      return {...state, postsList: copyOfPostsList}
+      return {
+        ...state,
+        postsList: state.postsList.map(post => {
+          if(post.id !== action.payload) {
+            return post;
+          }
+          return {
+            ...post,
+            visited: true,
+          };
+        }),
+      };
 
     case 'DISMISS_POST':
       return {
         ...state,
-        postsList: state.postsList.filter(items => items.data.id !== action.payload)
+        postsList: state.postsList.filter(items => items.id !== action.payload),
       };
-      
+
     case 'DISMISS_ALL_POSTS':
       return {
         ...state,
-        postsList: []
+        postsList: [],
       };
 
-      case 'ADD_POSTS':
-        return {
-          ...state,
-          postsList: [...state.postsList, ...action.payload]
-        };
+    case 'LOAD_POSTS':
+      return {
+        ...state,
+        postsList: [...action.payload],
+      };
 
-      case 'TOGGLE_SIDEBAR':
-        return {
-          ...state,
-          sidebar: [!action.payload]
-        };
-      
+    case 'TOGGLE_SIDEBAR':
+      return {
+        ...state,
+        sidebar: [!action.payload],
+      };
+
+    case 'UPDATE_PAGECOUNT':
+      return {
+        ...state,
+        pageCount: action.payload,
+      };
+
     default:
       return state;
   }
-}
+};
 
 export default reducer;

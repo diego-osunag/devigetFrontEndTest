@@ -1,25 +1,46 @@
 .postsList {
   flex-grow: 1;
-  overflow-y: scroll;  
+  overflow-y: scroll;
+  position: relative;  
 }
 
-.item-enter {
-  transform: translateY(100px);
-  opacity: 0;
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  list-style: none;
+  outline: none;
+  background-color: #1E1E1E;
+  justify-content: center;
+  padding: 0;
+  flex-grow: 1;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
-
-.item-enter-active {
-  transform: translateY(0);
-  opacity: 1;
-  transition: opacity 500ms ease-out, transform 500ms ease-out;
+.pagination > .active > a{
+  background-color: #3C3C3C ;
+  border-color: #3C3C3C ;
+  color: #fff;
 }
-
-.item-exit {
-  opacity: 1;
+.pagination > li > a{
+  display: flex;
+  background-color: #222222;
+  padding: 20px 20px;
+  outline: none;
+  cursor: pointer;
+  flex-grow: 1;
 }
-
-.item-exit-active {
-  transform: translateX(-200px);
-  opacity: 0;
-  transition: opacity 500ms ease-in, transform 500ms ease-in;
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+  
+  background-color: #3C3C3C ;
+  border-color: #3C3C3C;
+  outline: none ;
+}
+.pagination > li > a, .pagination > li > span{
+  font-size: 1em;
+  color: #fff;
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+  border-radius: unset
 }

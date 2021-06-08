@@ -5,11 +5,11 @@ import '../assets/styles/App.scss';
 
 const App = () => {
   return (
-    <div className="App">
-      <PostsSidebar/>        
+    <div className='App'>
+      <PostsSidebar />
       <PostsDetail />
     </div>
   );
-}
+};
 
 export default App;

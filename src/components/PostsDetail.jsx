@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import '../assets/styles/components/PostsDetail.scss';
 
 const PostsDetail = ({ selectedPost }) => {
-
   const [isActive, setActive] = useState();
 
   const validateThumbUrl = () => {
@@ -31,7 +31,6 @@ const PostsDetail = ({ selectedPost }) => {
   };
 
   const handleToggle = () => {
-    console.log(isActive);
     setActive(!isActive);
   };
 
@@ -39,10 +38,10 @@ const PostsDetail = ({ selectedPost }) => {
   const fullImgUrl = validateFullImgUrl();
 
   if (selectedPost[0] == null) {
-    console.log('selectedPost is empty!');
     return <p>&nbsp;</p>;
   }
 
+  
   return (
     <div className='postsDetail'>
       <h2 className='postsDetail__author'>{ selectedPost[0].author }</h2>
@@ -59,9 +58,9 @@ const PostsDetail = ({ selectedPost }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    selectedPost: state.selectedPost
+    selectedPost: state.selectedPost,
   };
 };
 

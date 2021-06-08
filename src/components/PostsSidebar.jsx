@@ -1,91 +1,103 @@
 /* eslint-disable jsx-quotes */
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { dismissAllPosts, addPosts, removeSelectedPost } from '../actions';
+import { dismissAllPosts, loadPosts, removeSelectedPost, updatePageCount } from '../actions';
 import PostsList from './PostsList';
 import '../assets/styles/components/PostsSidebar.scss';
 import menuIcon from '../assets/static/hamburguer-menu-icon.png';
-import leftIcon from '../assets/static/left-arrow.png';
 import reloadIcon from '../assets/static/reload.png';
 import '../swiped-events.min';
 
-const API = 'https://www.reddit.com/r/reactjs/top.json';
+class PostsSidebar extends Component {
 
-const PostsSidebar = (props) => {
-
-  const loadPosts = () => {
+  fetchApiData() {
+    const API = 'https://www.reddit.com/r/reactjs/top.json';
     fetch(API)
       .then((response) => response.json())
       .then((responseData) => {
-        props.addPosts(responseData.data.children);
+        const posts = responseData.data.children.map(item => (item.data));
+        this.props.loadPosts(posts);
+        this.props.updatePageCount(Math.ceil(this.props.postsList.length / this.props.perPage));
       });
-  };
+  }
 
-  const handleClick = () => {
-    props.dismissAllPosts();
-    props.removeSelectedPost();
-  };
+  handleClick = () => {
+    this.props.dismissAllPosts();
+    this.props.removeSelectedPost();
+    this.props.updatePageCount(0);
+  }
 
-  const handleRefresh = () => {
-    props.dismissAllPosts();
-    props.removeSelectedPost();
-    loadPosts();
-  };
+  handleRefresh = () => {
+    this.props.dismissAllPosts();
+    this.props.removeSelectedPost();
+    this.fetchApiData();    
+  }
 
-  const toggleSideBar = () => {
+  toggleSideBar = () => {
     const sidebar = document.getElementById('sideBar');
     sidebar.classList.toggle('visible');
   }
 
-  const showSideBar = () => {
+  showSideBar = () => {
     const sidebar = document.getElementById('sideBar');
     if (!sidebar.classList.contains('visible')) sidebar.classList.toggle('visible');
-  };
+  }
 
-  const hideSideBar = () => {
+  hideSideBar = () => {
     const sidebar = document.getElementById('sideBar');
     if (sidebar.classList.contains('visible')) sidebar.classList.toggle('visible');
-  };
+  }
 
-  const handleToggle = () => {
-    const btn = document.getElementById('btn');
-    if (btn.src === menuIcon) {
-      btn.src = leftIcon;
-    } else {
-      btn.src = menuIcon;
-    }
-    toggleSideBar();
-  };
+  handleToggle = () => {
+    const sidebar = document.getElementById('sideBar');
+    sidebar.classList.toggle('visible');
+  }
 
-  const handleSwipe = () => {
+  handleSwipe() {
     document.addEventListener('swiped-right', (event) => {
-      showSideBar();
+      this.showSideBar();
     });
     document.addEventListener('swiped-left', (event) => {
-      hideSideBar();
+      this.hideSideBar();
     });
+  }  
+
+  componentDidMount() {
+    this.fetchApiData();
+    this.handleSwipe();
+  }
+
+  render() {
+    return (
+      <section id="sideBar" className="postsSidebar">
+        <h2 className="postsSidebar__title">Top Reddit Posts (/r/reactjs)</h2>
+        <PostsList />
+        <h3 className="postsSidebar__dismissAll" onClick={this.handleClick}>
+          Dismiss All
+        </h3>
+        <img id='btn' className="postsDetail__icon" src={menuIcon} onClick={this.handleToggle} alt='' />
+        <img className="postsDetail__icon--reload" src={reloadIcon} onClick={this.handleRefresh} alt='' />
+        <h2 className="postsSidebar__hint">(Swipe to show side menu)</h2>
+      </section>
+    );
+  }
+};
+
+const mapStateToProps = (state) => {
+  return {
+    postsList: state.postsList,
+    pageCount: state.pageCount,
+    perPage: state.perPage,
   };
-
-  loadPosts();
-
-  handleSwipe();
-
-  return (
-    <section id="sideBar" className="postsSidebar">
-      <h2 className="postsSidebar__title">Reddit Posts</h2>
-      <PostsList />
-      <h3 className="postsSidebar__dismissAll" onClick={handleClick}>
-        Dismiss All
-      </h3>
-      <img id='btn' className="postsDetail__icon" src={menuIcon} onClick={handleToggle} alt='' />
-      <img className="postsDetail__icon--reload" src={reloadIcon} onClick={handleRefresh} alt='' />
-    </section>
-  );
-
 };
 
-const mapDispatchToProps = {
-  dismissAllPosts, addPosts, removeSelectedPost,
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dismissAllPosts: () => dispatch(dismissAllPosts()),
+    loadPosts: (posts) => dispatch(loadPosts(posts)),
+    removeSelectedPost: () => dispatch(removeSelectedPost()),
+    updatePageCount: (number) => dispatch(updatePageCount(number)),
+  };
 };
 
-export default connect(null, mapDispatchToProps)(PostsSidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(PostsSidebar);

@@ -1,32 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setSelectedPost, dismissPost, setPostAsVisited } from '../actions';
+import { setSelectedPost, removeSelectedPost, dismissPost, setPostAsVisited, dismissAllPosts } from '../actions';
 import '../assets/styles/components/PostsListItem.scss';
 import dotIcon from '../assets/static/circle.png';
 import arrowIcon from '../assets/static/right-arrow-icon.png';
 import dismissIcon from '../assets/static/dismiss-icon.png';
 
 const PostsListItem = (props) => {
-
+  //console.log("PostsListItem");
+  //console.log(props);
   const { id, visited, author, created_utc, thumbnail, title, num_comments, selftext, preview } = props;
 
   const handlePostClick = (itemId) => {
-    props.setSelectedPost({
-      id, visited, author, created_utc, thumbnail, title, num_comments, selftext, preview
-    });
-
-    console.log(`clicked! in ${id} visited was ${visited}`);
-
     if (!visited) props.setPostAsVisited(itemId);
-
-    console.log(`Now in ${id} visited is ${visited}`);
+    //debugger;
+    props.setSelectedPost(itemId);
   };
 
   const handleDismissPost = (itemId) => {
+    props.removeSelectedPost();
     props.dismissPost(itemId);
   };
 
-  const calculate = () => {
+  const calcTimeStamp = () => {
     const today = new Date();
     const currentTime = Math.floor(today.getTime() / 1000);
     const postTimestamp = created_utc;
@@ -58,7 +54,7 @@ const PostsListItem = (props) => {
     return validUrl;
   };
 
-  const timeStamp = calculate();
+  const timeStamp = calcTimeStamp();
   const validUrl = validateUrl();
 
   return (
@@ -80,9 +76,7 @@ const PostsListItem = (props) => {
       </div>
       <div className='postsListItem__row' onClick={() => handlePostClick(id)}>
         <img className='postsListItem__thumb' src={validUrl} alt='' />
-        <p
-          className={ visited ? 'postsListItem__description visited' : 'postsListItem__description' }
-        >
+        <p className={ visited ? 'postsListItem__description visited' : 'postsListItem__description' }>
           { title }
         </p>
         <img className='postsListItem__icon' src={ arrowIcon } alt='Right Arrow Icon' />
@@ -99,7 +93,7 @@ const PostsListItem = (props) => {
 };
 
 const mapDispatchToProps = {
-  setSelectedPost, dismissPost, setPostAsVisited,
+  setSelectedPost, removeSelectedPost, dismissPost, setPostAsVisited, dismissAllPosts,
 };
 
 export default connect(null, mapDispatchToProps)(PostsListItem);

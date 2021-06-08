@@ -6,18 +6,23 @@ import App from './containers/App';
 import reducer from './reducers';
 
 const initialState = {
-    "selectedPost": {},    
-    "postsList": []
+  'selectedPost': {},
+  'postsList': [],
+  'pageCount': 0,
+  'perPage':10
 };
-console.log("index.js")
-console.log(initialState)
 
 const store = createStore(reducer, initialState);
 
-ReactDOM.render( 
-  <Provider store={ store }>
+Object.defineProperty(window, 'reduxStore', {
+  get() {
+    return store.getState();
+  },
+});
+
+ReactDOM.render(
+  <Provider store={store}>
     <App />
   </Provider>,
-  
-  document.getElementById('app')
+  document.getElementById('app'),
 );
