@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostsSidebar /> Snapshot PostsSidebar UI rendering correctly 1`] = `
+<section
+  className="postsSidebar"
+  id="sideBar"
+>
+  <h2
+    className="postsSidebar__title"
+  >
+    Top Reddit Posts (/r/reactjs)
+  </h2>
+  <section
+    className="postsList"
+  >
+    <ul
+      className="pagination"
+    >
+      <li
+        className="previous disabled"
+      >
+        <a
+          aria-disabled="true"
+          aria-label="Previous page"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          rel="prev"
+          role="button"
+          tabIndex="0"
+        >
+          &lt;
+        </a>
+      </li>
+      <li
+        className="next"
+      >
+        <a
+          aria-disabled="false"
+          aria-label="Next page"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          rel="next"
+          role="button"
+          tabIndex="0"
+        >
+          &gt;
+        </a>
+      </li>
+    </ul>
+    <div
+      className="postsList__container"
+    >
+      <div
+        className="postsListItem"
+      >
+        <div
+          className="postsListItem__row"
+          onClick={[Function]}
+        >
+          <div
+            className="postsListItem__author"
+          >
+            <img
+              alt="Blue dot"
+              className="postsListItem__author--indicator"
+              src={Object {}}
+            />
+            <h2
+              className="postsListItem__author--text"
+            >
+              0-07i
+            </h2>
+          </div>
+          <p
+            className="postsListItem__time"
+          >
+            NaN second ago
+          </p>
+        </div>
+        <div
+          className="postsListItem__row"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            className="postsListItem__thumb"
+            src=""
+          />
+          <p
+            className="postsListItem__description"
+          >
+            How do I find external services in the code?
+          </p>
+          <img
+            alt="Right Arrow Icon"
+            className="postsListItem__icon"
+            src={Object {}}
+          />
+        </div>
+        <div
+          className="postsListItem__row"
+        >
+          <div
+            className="postsListItem__dismiss"
+            onClick={[Function]}
+          >
+            <img
+              alt="Dismiss Icon"
+              className="postsListItem__dismiss--icon"
+              src={Object {}}
+            />
+            <p
+              className="postsListItem__dismiss--text"
+            >
+              Dismiss Post
+            </p>
+          </div>
+          <p
+            className="postsListItem__comments"
+            onClick={[Function]}
+          >
+            undefined comments
+          </p>
+        </div>
+      </div>
+      <div
+        className="postsListItem"
+      >
+        <div
+          className="postsListItem__row"
+          onClick={[Function]}
+        >
+          <div
+            className="postsListItem__author"
+          >
+            <img
+              alt="Blue dot"
+              className="postsListItem__author--indicator"
+              src={Object {}}
+            />
+            <h2
+              className="postsListItem__author--text"
+            >
+              junior19932
+            </h2>
+          </div>
+          <p
+            className="postsListItem__time"
+          >
+            NaN second ago
+          </p>
+        </div>
+        <div
+          className="postsListItem__row"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            className="postsListItem__thumb"
+            src=""
+          />
+          <p
+            className="postsListItem__description"
+          >
+            How do I find external services in the code?
+          </p>
+          <img
+            alt="Right Arrow Icon"
+            className="postsListItem__icon"
+            src={Object {}}
+          />
+        </div>
+        <div
+          className="postsListItem__row"
+        >
+          <div
+            className="postsListItem__dismiss"
+            onClick={[Function]}
+          >
+            <img
+              alt="Dismiss Icon"
+              className="postsListItem__dismiss--icon"
+              src={Object {}}
+            />
+            <p
+              className="postsListItem__dismiss--text"
+            >
+              Dismiss Post
+            </p>
+          </div>
+          <p
+            className="postsListItem__comments"
+            onClick={[Function]}
+          >
+            undefined comments
+          </p>
+        </div>
+      </div>
+      <div
+        className="postsListItem"
+      >
+        <div
+          className="postsListItem__row"
+          onClick={[Function]}
+        >
+          <div
+            className="postsListItem__author"
+          >
+            <img
+              alt="Blue dot"
+              className="postsListItem__author--indicator visited"
+              src={Object {}}
+            />
+            <h2
+              className="postsListItem__author--text visited"
+            >
+              aareedy
+            </h2>
+          </div>
+          <p
+            className="postsListItem__time"
+          >
+            NaN second ago
+          </p>
+        </div>
+        <div
+          className="postsListItem__row"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            className="postsListItem__thumb visited"
+            src="https://a.thumbs.redditmedia.com/08MUc3eyJ4zs2f29UIAG53tGKMU6KwOFTb1An2aGUJ4.jpg"
+          />
+          <p
+            className="postsListItem__description visited"
+          >
+            How do I find external services in the code?
+          </p>
+          <img
+            alt="Right Arrow Icon"
+            className="postsListItem__icon"
+            src={Object {}}
+          />
+        </div>
+        <div
+          className="postsListItem__row"
+        >
+          <div
+            className="postsListItem__dismiss"
+            onClick={[Function]}
+          >
+            <img
+              alt="Dismiss Icon"
+              className="postsListItem__dismiss--icon"
+              src={Object {}}
+            />
+            <p
+              className="postsListItem__dismiss--text"
+            >
+              Dismiss Post
+            </p>
+          </div>
+          <p
+            className="postsListItem__comments"
+            onClick={[Function]}
+          >
+            undefined comments
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <h3
+    className="postsSidebar__dismissAll"
+    onClick={[Function]}
+  >
+    Dismiss All
+  </h3>
+  <img
+    alt=""
+    className="postsDetail__icon"
+    id="btn"
+    onClick={[Function]}
+    src={Object {}}
+  />
+  <img
+    alt=""
+    className="postsDetail__icon--reload"
+    onClick={[Function]}
+    src={Object {}}
+  />
+</section>
+`;

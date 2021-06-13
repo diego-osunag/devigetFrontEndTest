@@ -33,12 +33,7 @@ export const loadPosts = payload => ({
   payload,
 });
 
-export const toggleSidebar = payload => ({
-  type: 'TOGGLE_SIDEBAR',
-  payload,
-});
-
 export const updatePageCount = payload => ({
   type: 'UPDATE_PAGECOUNT',
   payload,
-})
+});

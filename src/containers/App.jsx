@@ -1,5 +1,5 @@
 import React from 'react';
-import PostsDetail from '../components/PostsDetail';
+import PostDetail from '../components/PostDetail';
 import PostsSidebar from '../components/PostsSidebar';
 import '../assets/styles/App.scss';
 
@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className='App'>
       <PostsSidebar />
-      <PostsDetail />
+      <PostDetail />
     </div>
   );
 };

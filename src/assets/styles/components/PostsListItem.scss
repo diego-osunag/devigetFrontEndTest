@@ -65,6 +65,11 @@
   max-width: 100px;
   height: auto;
   align-self: center;
+  transition: filter 300ms;
+}
+
+.postsListItem__thumb.visited {
+  filter: opacity(60%);
 }
 
 .postsListItem__description {

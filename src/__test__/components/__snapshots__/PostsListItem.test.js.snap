@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostsListItem /> Snapshot PostsListItem UI rendering correctly 1`] = `
+<div
+  className="postsListItem"
+>
+  <div
+    className="postsListItem__row"
+    onClick={[Function]}
+  >
+    <div
+      className="postsListItem__author"
+    >
+      <img
+        alt="Blue dot"
+        className="postsListItem__author--indicator"
+        src={Object {}}
+      />
+      <h2
+        className="postsListItem__author--text"
+      />
+    </div>
+    <p
+      className="postsListItem__time"
+    >
+      NaN second ago
+    </p>
+  </div>
+  <div
+    className="postsListItem__row"
+    onClick={[Function]}
+  >
+    <img
+      alt=""
+      className="postsListItem__thumb"
+    />
+    <p
+      className="postsListItem__description"
+    />
+    <img
+      alt="Right Arrow Icon"
+      className="postsListItem__icon"
+      src={Object {}}
+    />
+  </div>
+  <div
+    className="postsListItem__row"
+  >
+    <div
+      className="postsListItem__dismiss"
+      onClick={[Function]}
+    >
+      <img
+        alt="Dismiss Icon"
+        className="postsListItem__dismiss--icon"
+        src={Object {}}
+      />
+      <p
+        className="postsListItem__dismiss--text"
+      >
+        Dismiss Post
+      </p>
+    </div>
+    <p
+      className="postsListItem__comments"
+      onClick={[Function]}
+    >
+      undefined comments
+    </p>
+  </div>
+</div>
+`;

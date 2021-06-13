@@ -77,7 +77,6 @@ class PostsSidebar extends Component {
         </h3>
         <img id='btn' className="postsDetail__icon" src={menuIcon} onClick={this.handleToggle} alt='' />
         <img className="postsDetail__icon--reload" src={reloadIcon} onClick={this.handleRefresh} alt='' />
-        <h2 className="postsSidebar__hint">(Swipe to show side menu)</h2>
       </section>
     );
   }

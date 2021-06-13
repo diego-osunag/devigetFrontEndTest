@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostDetail /> Snapshot PostDetail UI rendering correctly 1`] = `
+<div
+  className="postDetail"
+>
+  <h2
+    className="postDetail__author"
+  >
+    0-07i
+  </h2>
+  <img
+    alt=""
+    className="postDetail__img"
+    onClick={[Function]}
+    src="https://a.thumbs.redditmedia.com/08MUc3eyJ4zs2f29UIAG53tGKMU6KwOFTb1An2aGUJ4.jpg"
+  />
+  <h1
+    className="postDetail__title"
+  >
+    How do I find external services in the code?
+  </h1>
+  <p
+    className="postDetail__description"
+  >
+    This might be a stupid question...    I am trying to narrow down any external services used by the UI, how do I find it where do I look for them?  Thank you sm!
+  </p>
+  <img
+    alt=""
+    className="postDetail__fullImg"
+    onClick={[Function]}
+    src="https://external-preview.redd.it/ftBi-vGkAc8oHoWPuMqxyrHV7e7TSVRxkAgr3FZ2NbA.jpg?auto=webp&s=3791ed9043209bf57f16f624d8a12471e3e1f748"
+  />
+</div>
+`;

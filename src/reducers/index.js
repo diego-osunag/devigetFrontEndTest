@@ -3,22 +3,20 @@ const reducer = (state, action) => {
     case 'SET_SELECTED_POST':
       return {
         ...state,
-        selectedPost: state.postsList.filter(items => items.id === action.payload),
+        selectedPost: state.postsList.filter(post => post.id === action.payload)[0],
       };
 
     case 'REMOVE_SELECTED_POST':
       return {
         ...state,
-        selectedPost: [],
+        selectedPost: {},
       };
 
     case 'SET_POST_AS_VISITED':
       return {
         ...state,
         postsList: state.postsList.map(post => {
-          if(post.id !== action.payload) {
-            return post;
-          }
+          if (post.id !== action.payload) return post;
           return {
             ...post,
             visited: true,
@@ -42,12 +40,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         postsList: [...action.payload],
-      };
-
-    case 'TOGGLE_SIDEBAR':
-      return {
-        ...state,
-        sidebar: [!action.payload],
       };
 
     case 'UPDATE_PAGECOUNT':

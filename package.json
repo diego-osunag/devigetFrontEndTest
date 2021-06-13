@@ -4,7 +4,8 @@
   "description": "Public repository for Deviget front end code challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --env development"
   },
@@ -37,17 +38,34 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "enzyme": "^3.11.0",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.0.4",
+    "jest-fetch-mock": "^3.0.3",
+    "jsdom": "^16.6.0",
     "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "^6.0.0",
+    "react-test-renderer": "^17.0.2",
     "sass-loader": "^12.0.0",
     "source-map-loader": "^1.0.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "jest": {
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/__test__/setupTest.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(styl|css|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
+      "\\.(gif|jpg|jpeg|png)$": "<rootDir>/src/__mocks__/imgMock.js"
+    },
+    "testEnvironment": "jsdom"
   }
 }
